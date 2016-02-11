@@ -9,12 +9,8 @@ module.exports = function(grunt) {
       js: {
         // src: ['public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
         src: 'public/client/*.js',
-        dest: 'public/dist/built.js'
-      },
-      css: {
-        src: ['public/style.css'],
-        dest: 'public/dist/built.css'
-      },
+        dest: '/dist/built.js'
+      }
     },
 
     mochaTest: {
@@ -35,7 +31,7 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files:{
-          'public/dist/built.min.js': ['public/dist/built.js']
+          '/dist/built.min.js': ['/dist/built.js']
         }
       }
     },
@@ -57,7 +53,7 @@ module.exports = function(grunt) {
     cssmin: {
       dist:{
         files:{
-          'public/dist/style.min.css': 'public/style.css'
+          '/dist/style.min.css': '/style.css'
         }
       }
     },
