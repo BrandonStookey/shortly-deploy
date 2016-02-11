@@ -130,12 +130,12 @@ module.exports = function(grunt) {
       // upload to heroku
       grunt.task.run(['shell']);
     } else {
-      'build',
       grunt.task.run([ 'server-dev' ]);
     }
   });
 
   grunt.registerTask('deploy', [
+    'build',
     'test',
     'upload'
   ]);
