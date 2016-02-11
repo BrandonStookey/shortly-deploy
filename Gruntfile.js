@@ -128,7 +128,7 @@ module.exports = function(grunt) {
     if(grunt.option('prod')) {
       console.log("Pushing to production!"),
       // upload to heroku
-      grunt.task.run(['shell']);
+      grunt.task.run(['shell:prodServer']);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
