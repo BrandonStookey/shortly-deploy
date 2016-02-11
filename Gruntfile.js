@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         'public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'
       ],
       options: {
-        force: 'true',
+        force: 'false',
         jshintrc: '.jshintrc',
         ignores: [
           'public/lib/**/*.js',
@@ -54,6 +54,11 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      dist:{
+        files:{
+          'public/dist/style.min.css': 'public/style.css'
+        }
+      }
     },
 
     watch: {
@@ -83,7 +88,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');  /////we need to css min!!////////////////////
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
@@ -106,19 +111,28 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
+    'jshint',
     'mochaTest'
   ]);
 
   grunt.registerTask('build', [
-    // concat
     // jshint
+    //if(!true){
+      //console.log(error!)
+      //break;
+      //}
+    // concat
+    'concat',
     // uglify
-    //do we need to add uglify here?????
+
+    ////////add css min///////
+    'uglify'
   ]);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
+      // upload to heroku
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
@@ -126,6 +140,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deploy', [
     // add your deploy tasks here
+    //test
+    // build
+    // test
+    'build',
+      // if fail
+        // log error & break
+    // push to target location
+    'upload'
   ]);
 
 
