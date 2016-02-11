@@ -40,8 +40,8 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: [
-        // Add filespec list here
+      files:[
+        'public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'
       ],
       options: {
         force: 'true',
@@ -110,6 +110,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    // concat
+    // jshint
+    // uglify
     //do we need to add uglify here?????
   ]);
 
