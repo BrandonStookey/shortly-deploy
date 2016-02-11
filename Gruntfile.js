@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       js: {
         // src: ['public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
-        src: 'public/client/*.js',
+        src: '/client/*.js',
         dest: '/dist/built.js'
       }
     },
