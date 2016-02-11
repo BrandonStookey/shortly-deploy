@@ -3,6 +3,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
+        dest: 'public/dist/built.js'
+      },
     },
 
     mochaTest: {
@@ -19,7 +26,7 @@ module.exports = function(grunt) {
         script: 'server.js'
       }
     },
-
+    ///We need to uglify??????????
     uglify: {
     },
 
@@ -94,6 +101,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    //do we need to add uglify here?????
   ]);
 
   grunt.registerTask('upload', function(n) {
