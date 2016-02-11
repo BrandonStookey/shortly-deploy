@@ -119,20 +119,11 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'jshint',
-    'mochaTest'
+    // 'mochaTest'
   ]);
 
   grunt.registerTask('build', [
-    // jshint
-    //if(!true){
-      //console.log(error!)
-      //break;
-      //}
-    // concat
     'concat',
-    // uglify
-
-    ////////add css min///////
     'cssmin',
     'uglify'
   ]);
@@ -140,25 +131,28 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       console.log("Pushing to production!"),
-      grunt.task.run(['shell']);
-      // add your production server task here
       // upload to heroku
+      grunt.task.run(['shell']);
     } else {
+      'build',
       grunt.task.run([ 'server-dev' ]);
     }
   });
 
   grunt.registerTask('deploy', [
-    // add your deploy tasks here
-    //test
-    // build
-    // test
-    'build',
-      // if fail
-        // log error & break
-    // push to target location
+    'test',
     'upload'
   ]);
 
-
+  grunt.registerTask('heroku', ['build']);
 };
+
+
+
+//grunt deploy local deployment
+  //build it, then turn on server local
+//grunt deploy --prod
+  //got to heroku
+  //push to heroku
+  //then heroku will autommatically catch the heroku task
+  //and build it
