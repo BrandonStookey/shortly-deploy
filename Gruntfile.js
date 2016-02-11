@@ -8,8 +8,8 @@ module.exports = function(grunt) {
       },
       js: {
         // src: ['public/lib/jquery.js', 'public/lib/underscore.js','public/lib/backbone.js','public/lib/handlebars.js', 'public/client/*.js'],
-        src: '/client/*.js',
-        dest: '/dist/built.js'
+        src: 'public/client/*.js',
+        dest: 'public/dist/built.js'
       }
     },
 
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files:{
-          '/dist/built.min.js': ['/dist/built.js']
+          'public/dist/built.min.js': ['public/dist/built.js']
         }
       }
     },
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
     cssmin: {
       dist:{
         files:{
-          '/dist/style.min.css': '/style.css'
+          'public/dist/style.min.css': 'public/style.css'
         }
       }
     },
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');  /////we need to css min!!////////////////////
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
