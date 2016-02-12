@@ -27,7 +27,7 @@ User.comparePassword = function(candidatePassword, savedPassword, cb) {
 };
 
 userSchema.pre("save", function(next){
-  var cipher = bluebird.promisify(brcrypt.hash);
+  var cipher = bluebird.promisify(bcrypt.hash);
   return cipher(this.password, null, null).bind(this)
     .then(function(hash){
       this.password = hash;
