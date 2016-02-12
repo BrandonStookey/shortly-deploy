@@ -140,13 +140,12 @@ module.exports = function(grunt) {
     'upload'
   ]);
 
-  // grunt.registerTask('heroku', [dostuff])
-  grunt.registerTask('heroku:production', ['build']);
+  grunt.registerTask('heroku', ['build']);
 
 };
 
 
-
+//
 //grunt deploy local deployment
   //build it, then turn on server local
 //grunt deploy --prod
