@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'jshint',
-    // 'mochaTest'
+    'mochaTest'
   ]);
 
   grunt.registerTask('build', [
@@ -135,8 +135,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy', [
-    'build',
     'test',
+    'build',
     'upload'
   ]);
 
