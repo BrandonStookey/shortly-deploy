@@ -17,12 +17,6 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model("User", userSchema);
 
-// var User = db.Model.extend({
-//   tableName: 'users',
-//   hasTimestamps: true,
-//   initialize: function(){
-//     this.on('creating', this.hashPassword);
-//   },
 User.comparePassword = function(candidatePassword, savedPassword, cb) {
   bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
     if(err){
@@ -42,13 +36,4 @@ userSchema.pre("save", function(next){
 });
 
 module.exports = User;
-
-// hashPassword: function(){
-//     var cipher = Promise.promisify(bcrypt.hash);
-//     return cipher(this.get('password'), null, null).bind(this)
-//       .then(function(hash) {
-//         this.set('password', hash);
-//       });
-//   }
-// });
 
